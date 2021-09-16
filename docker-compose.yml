@@ -1,0 +1,11 @@
+version: "3.4"
+
+services:
+  websocket:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 5555:5555
