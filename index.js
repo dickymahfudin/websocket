@@ -8,7 +8,7 @@ const {
   userLeave,
   getRoomUsers,
 } = require("./helpers/users");
-const port = 8000;
+const port = 5555;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -20,6 +20,7 @@ io.on("connection", (socket) => {
   console.log(`conncet ${socket.id}`);
   let state = false;
   let stateLight = false;
+  console.log(`connect ${socket.id}`);
   socket.on("join", ({ room, device = false }) => {
     const user = userJoin(socket.id, room, device);
     socket.join(room);
