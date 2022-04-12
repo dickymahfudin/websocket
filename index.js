@@ -17,6 +17,7 @@ app.set("view engine", "ejs");
 app.get("/", (req, res) => res.render("index"));
 
 io.on("connection", (socket) => {
+  console.log(`conncet ${socket.id}`);
   let state = false;
   let stateLight = false;
   socket.on("join", ({ room, device = false }) => {
